@@ -12,8 +12,8 @@
             "dest" : "/css/$1"
         },
         {
-            "src" : "/js_cote_naviggateur/(.*)",
-            "dest" : "/js_cote_naviggateur/$1"     
+            "src" : "/js_cote_navigateur/(.*)",
+            "dest" : "/js_cote_navigateur/$1"     
         },
         {
             "src" : "/(.*)",
