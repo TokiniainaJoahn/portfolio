@@ -29,6 +29,13 @@ app.use(express.static("css"));
 
 app.use(express.static("js_cote_navigateur"));
 
+const base_donnes = mysql.createConnection({
+    host : "localhost",
+    user : "root" ,
+    password : "Tokiniaina" ,
+    database : "portfolio" ,
+});
+
 app.get("/" , (requette , reponse) =>{
     reponse.render("index" , {titre : "Acceuil"});
 })
@@ -38,19 +45,27 @@ app.get("/competences" , (requette , reponse) =>{
 })
 
 app.get("/projets" , (requette , reponse) =>{
-    reponse.render("projets" , {titre : "Projets"});
+    base_donnes.connect((error)=>{
+        if (error){
+            console.log("On n'as pas pu se connecter a la base de donnes");
+            
+        }
+        else{
+            base_donnes.query("SELECT * FROM Projet" , (error , resultat)=>{
+                if (error){
+                    console.log(error);
+                    
+                }else{
+                    reponse.render("projets" , {titre : "Projets" , projets : resultat});
+                }
+            })
+        }
+    })
 })
 
 app.get("/contact" , (requette , reponse) =>{
     reponse.render("contacter" , {titre : "Me Contacter"});
 })
-
-const base_donnes = mysql.createConnection({
-    host : "localhost",
-    user : "root" ,
-    password : "Tokiniaina" ,
-    database : "portfolio" ,
-});
 
 app.get("/Admin/connection" , (requette , reponse) =>{
     reponse.render("connection");

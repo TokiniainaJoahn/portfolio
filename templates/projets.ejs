@@ -5,20 +5,25 @@
             <h2 class="titre_page">MES PROJETS</h2>
             <h1>Construisons quelques choses ensemble.</h1>
         </section>
-        <section class="dev_web">
-            <h4>Developpement web</h4>
-            <p>Je developpe conçois des pages web notament des sites vitrines et des applications web . Les languages que j'utilise pour le Developpement web sont : HTML , CSS , JS , PHP , Python</p>
+
+        <section class="Projet" aria-label="Mes projets">
+            <% projets.forEach((projet)=>{%>
+                <article class="projet-card">
+                    <div class="projet-card__image">
+                        <img src="<%= projet.Image %>" alt="Aperçu du projet">
+                    </div>
+                    <div class="projet-card__contenu">
+                        <h3><%= projet.Titre || projet.titre || 'Projet GitHub' %></h3>
+                        <p class="projet-card__description"><%= projet.Description || projet.description %></p>
+                        <a class="projet-card__lien" href="<%= projet.Github || projet.github %>" target="_blank" rel="noopener noreferrer">
+                            Voir le projet sur GitHub
+                        </a>
+                    </div>
+                </article>
+            <% }) %>
         </section>
-        <article class="dev_app_log">
-            <section class="dev_app">
-                <h4>Developpement mobile</h4>
-                <p>Je conçois aussi des application mobile et les languages que j'utilise est React Native</p>
-            </section>
-            <section class="dev_log">
-                <h4>Developpement logiciel</h4>
-                <p>Je conçois aussi des logociel et les languages que j'utilise est generalement Python</p>
-            </section>
-        </article>
+
+        <%- include ("structure_base/service")%>
 
     </main>
 
