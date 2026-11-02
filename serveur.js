@@ -147,7 +147,7 @@ app.post("/api/contact" , (requette , reponse)=>{
         if (erreur){
             console.log(erreur);
         }else{
-            reponse.redirect("/contacter");
+            reponse.redirect("/contact");
         }
     })
 })
