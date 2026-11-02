@@ -244,4 +244,4 @@ app.post("/api/auth/admin/otp/:email" , (requette , reponse)=>{
     })  
 })
 
-app.listen(4500);
+module.exports = app;
