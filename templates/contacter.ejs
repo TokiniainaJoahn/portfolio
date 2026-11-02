@@ -1,9 +1,9 @@
 <%- include ("structure_base/header")%>
 
     <main>
-        <section>
+        <section class="contact_intro">
             <h2 class="titre_page">CONTACT</h2>
-            <h1>Construisons quelques choses ensemble.</h1>
+            <h1>Construisons quelque chose ensemble.</h1>
         </section>
         <article class="contact_article">
             <section class="divers_contact">
@@ -39,35 +39,24 @@
                 <h2>Envoyez-moi un message par email</h2>
 
                 <label for="nom_complet">Nom complet</label><br>
-                <input type="text" name="nom" class="input_style" placeholder="Votre nom"><br>
+                <input type="text" id="nom_complet" name="nom" class="input_style" placeholder="Votre nom" required><br>
 
-                <label for="email" class="label_contact">Entrez votre email:</label><br>
-                <input type="email" name="email_destination" class="input_style" placeholder="email@example.com"><br>
+                <label for="email" class="label_contact">Entrez votre email :</label><br>
+                <input type="email" id="email" name="email_destination" class="input_style" placeholder="email@example.com" required><br>
 
-                <label for="sujet" class="label_contact">Entrez ici le sujet:</label><br>
-                <input type="text" name="sujet" class="input_style" placeholder="Objet de votre demande"><br>
+                <label for="sujet" class="label_contact">Entrez ici le sujet :</label><br>
+                <input type="text" id="sujet" name="sujet" class="input_style" placeholder="Objet de votre demande" required><br>
                 
                 <label for="message" class="label_contact">Message :</label><br>
-                <textarea name="message" id="" style="resize: none;height: 75px;" placeholder="Decrivez le sujet" class="input_message"></textarea><br>
+                <textarea name="message" id="message" placeholder="Décrivez votre projet" class="input_message" required></textarea><br>
 
                 <input type="submit" class="btn_submit" value="Envoyez le message">
 
             </form>
         </article>
-        <section class="dev_web">
-            <h4>Developpement web</h4>
-            <p>Je developpe conçois des pages web notament des sites vitrines et des applications web . Les languages que j'utilise pour le Developpement web sont : HTML , CSS , JS , PHP , Python</p>
-        </section>
-        <article class="dev_app_log">
-            <section class="dev_app">
-                <h4>Developpement mobile</h4>
-                <p>Je conçois aussi des application mobile et les languages que j'utilise est React Native</p>
-            </section>
-            <section class="dev_log">
-                <h4>Developpement logiciel</h4>
-                <p>Je conçois aussi des logociel et les languages que j'utilise est generalement Python</p>
-            </section>
-        </article>
+        
+        <%- include ("structure_base/service")%>
+
     </main>
 
 <%- include ("structure_base/footer")%>
