@@ -8,11 +8,11 @@
     ],
     "routes" : [
         {
-            "src" : "/css/.*",
+            "src" : "/css/(.*)",
             "dest" : "/css/$1"
         },
         {
-            "src" : "/js_cote_naviggateur/.*",
+            "src" : "/js_cote_naviggateur/(.*)",
             "dest" : "/js_cote_naviggateur/$1"     
         },
         {
