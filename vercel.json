@@ -1,18 +1,23 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "functions": {
-    "api/index.js": {
-      "includeFiles": "../css/**, ../js_cote_navigateur/**"
-    }
-  },
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/css/(.*)",
-      "destination": "/css/$1"
+      "src": "api/index.js",
+      "use": "@vercel/node"
     },
     {
-      "source": "/js_cote_navigateur/(.*)",
-      "destination": "/js_cote_navigateur/$1"
+      "src": "css/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "js_cote_navigateur/**",
+      "use": "@vercel/static"
     }
+  ],
+  "routes": [
+    { "src": "/style.css", "dest": "css/style.css" },
+    { "src": "/javascrit.js", "dest": "js_cote_navigateur/javascrit.js" },
+    { "src": "/(.*\\.(?:css|png|jpg|jpeg|gif|svg|webp|js))", "dest": "$0" },
+    { "src": "/(.*)", "dest": "/api/index.js" }
   ]
 }
